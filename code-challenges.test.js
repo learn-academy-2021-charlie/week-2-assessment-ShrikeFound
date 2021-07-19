@@ -1,10 +1,5 @@
 // ASSESSMENT 2: Coding practical questions with Jest
 
-// const { expect } = require("@jest/globals")
-// const { test } = require("jest-circus")
-// const { capitalize } = require("lodash")
-// const { describe } = require("yargs")
-
 // Please read all questions thoroughly
 // All problems can be solved with concepts covered in class or in the syllabus
 // Pseudo coding is REQUIRED
@@ -22,14 +17,13 @@
 // --------------------1) Create a function that takes a number as an argument and decides if the number is evenly divisble by three or not.
 
 // a) Create a test with expect statements for each of the variables provided.
+
+
+
 //create a test suite for function isDivisibleByThree
 describe("isDivisbleByThree", () =>{
 
-
-
-
 // These are the inputs we want to test
-
 var num1 = 15
 // Expected output: "15 is divisible by three"
 
@@ -42,17 +36,21 @@ var num3 = -7
 
 //creating 3 tests, one for each test variable
 
-//testing whether a number that should be divisble by three returns the appropriate string
-test("returns string if number is divisible by three",()=>{
+//testing whether a number returns the appropriate string
+test("returns string depending on whether number is divisible by three",()=>{
     //using the variables from above
     expect(isDivisibleByThree(num1)).toEqual(`${num1} is divisible by three`)
+    expect(isDivisibleByThree(num3)).toEqual(`${num3} is not divisible by three`)
 })
+
+//testing whether 0 returns the appropriate string
 test("returns string if 0 is divisible by three",()=>{
     expect(isDivisibleByThree(num2)).toEqual(`${num2} is divisible by three`)
 })
-test("returns string if number is not divisible by three",()=>{
-    expect(isDivisibleByThree(num3)).toEqual(`${num3} is not divisible by three`)
-})
+
+// test("returns string if number is not divisible by three",()=>{
+//     expect(isDivisibleByThree(num3)).toEqual(`${num3} is not divisible by three`)
+// })
 
 
 })
@@ -72,12 +70,20 @@ const isDivisibleByThree = (num) => {
 
 }
 
-
 // --------------------2) Create a function that takes in an array of words and returns an array with all the words capitalized.
 
 // a) Create a test with expect statements for each of the variables provided.
 
 //create a test suite for capitalizeWords
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~CONFUSION~~~~~~~~~~~~
+// I have three "describes", but jest is only recognizing one test suite? 
+// I thought the describes were each containing a test suite. Is that not the case?
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 describe("capitalizeWords",() =>{
  
     //inputs
@@ -108,10 +114,11 @@ const capitalizeWords = (array) =>{
         let splitWord = word.split("")
         //capitalize first letter/item in array
         splitWord[0] = splitWord[0].toUpperCase()
+        //join array into string
         return splitWord.join("")
     })
 
-    // return transformed array
+    // return array of transformed words
     return capitalizedWords
 }
 
@@ -120,6 +127,7 @@ const capitalizeWords = (array) =>{
 
 // a) Create a test with expect statements for each of the variables provided.
 
+//create test suite for firstVowel
 describe("firstVowel",() =>{
     //inputs and outputs
     var vowelTester1 = "learn"
@@ -134,6 +142,7 @@ describe("firstVowel",() =>{
     // Expected output: 2
     var vowelTester3Output
 
+    //test comparing inputs to expected outputs
     test("returns index of first vowel",() =>{
         expect(firstVowel(vowelTester1)).toEqual(vowelTester1Output)
         expect(firstVowel(vowelTester2)).toEqual(vowelTester2Output)
@@ -150,10 +159,12 @@ const firstVowel = (string) =>{
 
     //go over each character in string, starting from the beginning
     for(let i = 0; i < string.length; i++){
+
         //if the character is one of the vowels
         //return the index we used to access the character
         if (vowels.includes(string[i])) return i
     }
-    return "perhaps you were looking for y?"
+    //otherwise return message
+    return "No vowel found. Perhaps you were looking for y?"
 
 }

@@ -22,7 +22,7 @@ const greeter = (name) => {
 console.log(greeter("LEARN Student"))
 
 // a) Your answer: undefined
-// b) Verify and explain: there's no return statement and the function isn't all on one line so there's no implicit return.
+// b) Verify and explain: there's no return statement and there's no implicit return.
 
 
 // --------------------3) What will this log?
@@ -31,7 +31,7 @@ var multBy2 = [4, 5, 6, 7, 8].map(value => value * 2)
 console.log(multBy2)
 
 // a) Your answer: [8, 10, 12, 14, 16]
-// b) Verify and explain: map returns an array with each value transformed according to the function passed into it; 
+// b) Verify and explain: map returns an array with each value transformed according to the function passed into it. 
   //in this case, each value is multiplied by 2.
 
 

@@ -140,12 +140,13 @@ describe("firstVowel",() =>{
 
     var vowelTester3 = "challenge"
     // Expected output: 2
-    var vowelTester3Output
+    var vowelTester3Output = 2
 
     //test comparing inputs to expected outputs
     test("returns index of first vowel",() =>{
         expect(firstVowel(vowelTester1)).toEqual(vowelTester1Output)
         expect(firstVowel(vowelTester2)).toEqual(vowelTester2Output)
+        expect(firstVowel(vowelTester3)).toEqual(vowelTester3Output)
     })
 
 
@@ -155,7 +156,7 @@ describe("firstVowel",() =>{
 //create functions that takes a string
 const firstVowel = (string) =>{
     //list vowels
-    const vowels = ["a","b","c","d","e"]
+    const vowels = ["a","e","i","o","u"]
 
     //go over each character in string, starting from the beginning
     for(let i = 0; i < string.length; i++){
